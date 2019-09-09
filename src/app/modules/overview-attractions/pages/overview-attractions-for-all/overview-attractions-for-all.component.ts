@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Attraction} from '../../../../core/model/Attraction';
 import {Place} from '../../../../core/model/Place';
+import {MainSevice} from '../../../../core/sevice/MainSevice';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-overview-attractions',
@@ -9,36 +11,38 @@ import {Place} from '../../../../core/model/Place';
 })
 export class OverviewAttractionsForAllComponent implements OnInit {
 
-  // tslint:disable-next-line:no-input-rename
-  @Input('attractions')
   attractions: Attraction[];
-
-  // tslint:disable-next-line:no-input-rename
-  @Input('places')
   places: Place[];
 
-  isVisibleCheck = false;
-  isVisible = false;
+  tmpPlaceId: string;
+  tmpPlaceName: string;
+  isVisibleCity = true;
+  isVisibleAttraction = false;
 
-  constructor() { }
+  constructor(private mainService: MainSevice) { }
 
-  check() {
-    this.isVisibleCheck = true;
-  }
-  checkOption() {
-    if (this.isVisibleCheck) {
-      this.isVisible = true;
-    }
-  }
-  onSubmitAttraction() {
-    console.log('Atrakcje: ' + this.attractions);
+  setPlaceParameters(place: Place) {
+    this.tmpPlaceId = place.id;
+    this.tmpPlaceName = place.city;
   }
 
-  onSubmitCity() {
-    console.log('Miejsca: ' + this.places);
+  confirmCity() {
+    this.isVisibleCity = false;
+    this.isVisibleAttraction = true;
+    this.mainService.findAllAttractionsByPlaceId(this.tmpPlaceId).subscribe( data => {
+      this.attractions = data;
+    });
+  }
+
+  back() {
+    this.isVisibleCity = true;
+    this.isVisibleAttraction = false;
   }
 
   ngOnInit() {
+    this.mainService.findAllPlaces().subscribe( data => {
+      this.places = data;
+    });
   }
 
 }

@@ -10,7 +10,7 @@ export class PageNotFoundComponent implements OnInit {
   constructor() { }
 
   returnToHome() {
-    location.assign('timetable/classname/1I');
+    location.assign('');
   }
 
   ngOnInit() {

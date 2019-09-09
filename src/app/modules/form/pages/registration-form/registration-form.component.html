@@ -1,0 +1,12 @@
+<header>
+  <h1>Registration</h1>
+</header>
+
+<form (ngSubmit)="onSubmit()">
+  <label>Name</label>
+  <input type="text" [(ngModel)]="user.name"
+         id="name" name="name"
+         placeholder="Enter your name" required="">
+</form>
+
+

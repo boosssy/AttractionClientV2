@@ -23,6 +23,10 @@ export class MainSevice {
     return this.http.get<Attraction[]>(this.attractionsUrl);
   }
 
+  public findAllAttractionsByPlaceId(placeId: string): Observable<Attraction[]> {
+    return this.http.get<Attraction[]>(this.attractionsUrl + '/place/' + placeId);
+  }
+
   public findAllPlaces(): Observable<Place[]> {
     return this.http.get<Place[]>(this.placesUrl);
   }

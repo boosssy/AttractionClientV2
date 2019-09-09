@@ -5,39 +5,43 @@ import {PageNotFoundComponent} from './modules/exceptions/pages/page-not-found/p
 import {SuccessfulOperationPageComponent} from './modules/exceptions/pages/successful-operation-page/successful-operation-page.component';
 import {FailedOperationPageComponent} from './modules/exceptions/pages/failed-operation-page/failed-operation-page.component';
 import {SuccessfulLoginComponent} from './modules/exceptions/pages/successful-login/successful-login.component';
-import {StartingViewForAllComponent} from "./modules/starting-view/pages/starting-view-for-all/starting-view-for-all.component";
-import {OfferForAllComponent} from "./modules/offer/pages/offer-for-all/offer-for-all.component";
-import {ContactForAllComponent} from "./modules/contact/pages/contact-for-all/contact-for-all.component";
-import {AboutUsForAllComponent} from "./modules/about-us/pages/about-us-for-all/about-us-for-all.component";
-import {LoginComponent} from "./modules/login/login.component";
+import {LoginComponent} from './modules/form/pages/login-form/login.component';
+// tslint:disable-next-line:max-line-length
+import {OverviewAttractionsForAllComponent} from './modules/overview-attractions/pages/overview-attractions-for-all/overview-attractions-for-all.component';
+import {RegistrationFormComponent} from './modules/form/pages/registration-form/registration-form.component';
+
 const parentModuleRoutes: Routes = [
   {
     path: '',
     component: ContentComponent,
     children: [
-      {
-        path: 'home',
-        component: StartingViewForAllComponent
-      },
-      {
-        path: 'offer',
-        component: OfferForAllComponent
-      },
       // {
-      //   path: 'attractions',
-      //   component: OverviewAttractionsForAllComponent
+      //   path: 'home',
+      //   component: PageNotFoundComponent
+      // },
+      // {
+      //   path: 'offer',
+      //   component: PageNotFoundComponent
       // },
       {
-        path: 'contact',
-        component: ContactForAllComponent
+        path: 'attractions-for-all',
+        component: OverviewAttractionsForAllComponent
       },
-      {
-        path: 'about-us',
-        component: AboutUsForAllComponent
-      },
+      // {
+      //   path: 'contact',
+      //   component: PageNotFoundComponent
+      // },
+      // {
+      //   path: 'about-us',
+      //   component: PageNotFoundComponent
+      // },
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'registration',
+        component: RegistrationFormComponent
       },
       {
         path: 'successful-login',

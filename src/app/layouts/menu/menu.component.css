@@ -30,7 +30,7 @@
   transition:0.5s; -webkit-transition:0.5s;
 }
 
-.menu ul li:last-of-type{
+.right-buttons {
   float:right;
   margin:0 0 0 40px;
 }
