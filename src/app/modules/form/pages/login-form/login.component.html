@@ -2,22 +2,23 @@
   <h1>Login</h1>
 </header>
 
-<form method="post" name="form1" (ngSubmit)="login()" #formData="ngForm">
+<form method="post" name="form1" (ngSubmit)="login(true)" #formData="ngForm" *ngIf="status===false">
   <input [(ngModel)]="tmpUser.userName" type="email" placeholder="e-mail" name="email" required/>
   <input [(ngModel)]="tmpUser.password" type="password" placeholder="hasło" name ="password" required/>
 
   <button class="btn" type="submit" [disabled]="formData.invalid">Log in</button>
   <button class="btn" type="submit" (click)="signup()">Registration</button>
+
+
   <button *ngIf="hiddenButtonLoginFb" [disabled]="showButtonLoginFb" class="btn btn-primary btn-block"   (click)="signIn('Facebook');">
     <i class="fa fa-facebook" style="background-color: #385998; border-color: #385998"> </i> Log in with FB
   </button>
-  <button *ngIf="hiddenButtonLogoutFb" [disabled]="showButtonLogoutFb" class="btn" (click)="signOut();">Wyloguj się</button>
+
+  <button *ngIf="hiddenButtonLogoutFb" [disabled]="showButtonLogoutFb" class="btn" (click)="signOut(false);">Logout</button>
 </form>
+
+
 <div class="menu" *ngIf="user">
-  <!-- todo blokowac klawisz ZALOGUJ i uaktywnic klawisz WYLOGUJ -->
-  <!-- todo pokazac zdjęcie na pasku nawigacyjnym -->
-  <!-- todo wylaczyc zakladke ZALOGUJ -->
-  <!-- todo obsluga klawiszy ZALOGUJ i WYLOGUJ -->
-      <img src="{{ user.photoUrl }}">
+  <img src="{{ user.photoUrl }}">
 </div>
 

@@ -1,7 +1,9 @@
-<app-menu></app-menu>
+<app-menu  *ngIf="!status"></app-menu>
+
+<app-menu-account *ngIf=status></app-menu-account>
 
 <section>
   <router-outlet></router-outlet>
 </section>
 
-<app-footer></app-footer>
+<app-footer ></app-footer>

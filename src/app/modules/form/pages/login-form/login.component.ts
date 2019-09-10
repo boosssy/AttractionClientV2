@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { AuthService, FacebookLoginProvider } from 'angularx-social-login';
-import {NgForm} from '@angular/forms';
 import {AuthorizationsService} from '../../../../core/sevice/authorizations.service';
 import {User} from '../../../../core/model/User';
 import {MainSevice} from '../../../../core/sevice/MainSevice';
-import {forEach} from '@angular/router/src/utils/collection';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,6 @@ import {forEach} from '@angular/router/src/utils/collection';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   title = 'Angular Socio login via Facebook!';
   users: User[];
   tmpUser: User;
@@ -21,6 +19,8 @@ export class LoginComponent implements OnInit {
   showButtonLogoutFb = true;
   hiddenButtonLoginFb = true;
   hiddenButtonLogoutFb = false;
+  status = false;
+
 
   constructor(private socioAuthServ: AuthService,
               private authoService: AuthorizationsService,
@@ -43,33 +43,35 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  login(status: boolean) {
+    let i: number;
+    for (i = 0; i < this.users.length; i++)  {
+      if ( this.tmpUser.userName === this.users[i].userName ) {
+        if (this.tmpUser.password === this.users[i].password) {
+          this.status = status;
+        }
+      }
+    }
+    if (this.status) {
+      location.assign('/account');
+      // console.log('status login=' +this.status);
+    }
+    else {
+      location.assign('/failed');
+      // console.log('status off=' +this.status);
+    }
+  }
+
   // Method to log out.
-  signOut(): void {
+  signOut(status: boolean): void {
     this.showButtonLoginFb = false;
     this.showButtonLogoutFb = true;
     this.hiddenButtonLoginFb = true;
     this.hiddenButtonLogoutFb = false;
+    this.status = status;
     this.socioAuthServ.signOut();
     this.user = null;
     console.log('User signed out.');
-  }
-
-  login() {
-      // this.authoService.login(formData.value.email, formData.value.password);
-    let status = false;
-    let i: number;
-    for (i = 0; i < this.users.length; i++)  {
-      if (this.tmpUser.userName === this.users[i].userName) {
-        if (this.tmpUser.password === this.users[i].password) {
-          status = true;
-        }
-      }
-    }
-    if (status) {
-      location.assign('/successful-login');
-    } else {
-      location.assign('/failed');
-    }
   }
 
   signup() {

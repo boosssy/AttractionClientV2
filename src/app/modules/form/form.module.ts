@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {LoginComponent} from './pages/login-form/login.component';
 import { RegistrationFormComponent } from './pages/registration-form/registration-form.component';
+import { LogoutComponent } from './pages/logout-form/logout.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationFormComponent],
+  declarations: [LoginComponent, RegistrationFormComponent, LogoutComponent],
   imports: [
     CommonModule,
     FormsModule

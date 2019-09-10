@@ -10,35 +10,31 @@ import {LoginComponent} from './modules/form/pages/login-form/login.component';
 import {OverviewAttractionsForAllComponent} from './modules/overview-attractions/pages/overview-attractions-for-all/overview-attractions-for-all.component';
 import {RegistrationFormComponent} from './modules/form/pages/registration-form/registration-form.component';
 import {ContactViewComponent} from './modules/contact/pages/contact-view/contact-view.component';
+import {StartViewComponent} from "./modules/start/pages/start-view/start-view.component";
+import {AboutUsViewComponent} from "./modules/about-us/pages/about-us-view/about-us-view.component";
+import {LogoutComponent} from "./modules/form/pages/logout-form/logout.component";
+import {AccountViewComponent} from "./modules/account/pages/account-view/account-view.component";
 
 const parentModuleRoutes: Routes = [
   {
     path: '',
     component: ContentComponent,
     children: [
-      // {
-      //   path: 'home',
-      //   component: PageNotFoundComponent
-      // },
-      // {
-      //   path: 'offer',
-      //   component: PageNotFoundComponent
-      // },
       {
         path: 'attractions-for-all',
         component: OverviewAttractionsForAllComponent
       },
-      // {
-      //   path: 'contact',
-      //   component: PageNotFoundComponent
-      // },
-      // {
-      //   path: 'about-us',
-      //   component: PageNotFoundComponent
-      // },
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'account',
+        component: AccountViewComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: 'registration',
@@ -47,6 +43,14 @@ const parentModuleRoutes: Routes = [
       {
         path: 'contact',
         component: ContactViewComponent
+      },
+      {
+        path: 'start',
+        component: StartViewComponent
+      },
+      {
+        path: 'about-us',
+        component: AboutUsViewComponent
       },
       {
         path: 'successful-login',
@@ -63,6 +67,11 @@ const parentModuleRoutes: Routes = [
       {
         path: 'pageNotFound',
         component: PageNotFoundComponent
+      },
+      {
+        path: '',
+        redirectTo: '/start',
+        pathMatch: 'full',
       },
     ]
   }

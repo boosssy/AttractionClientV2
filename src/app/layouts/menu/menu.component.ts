@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, Input, OnInit, Output} from '@angular/core';
+import { LoginComponent} from "../../modules/form/pages/login-form/login.component";
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
 
   ngOnInit() {
