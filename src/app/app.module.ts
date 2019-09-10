@@ -14,6 +14,7 @@ import {AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import { FacebookLoginProvider } from 'angularx-social-login';
 import {AuthorizationsService} from './core/sevice/authorizations.service';
 import {OverviewAttractionsModule} from './modules/overview-attractions/overview-attractions.module';
+import {ContactModule} from './modules/contact/contact.module';
 
 const facebookoauthclientid = '797209834027503';
 const config = new AuthServiceConfig([
@@ -38,6 +39,7 @@ const config = new AuthServiceConfig([
     AppRoutingModule,
     ExceptionsModule,
     OverviewAttractionsModule,
+    ContactModule,
     SocialLoginModule.initialize(config)
   ],
   providers: [

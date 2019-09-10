@@ -9,6 +9,7 @@ import {LoginComponent} from './modules/form/pages/login-form/login.component';
 // tslint:disable-next-line:max-line-length
 import {OverviewAttractionsForAllComponent} from './modules/overview-attractions/pages/overview-attractions-for-all/overview-attractions-for-all.component';
 import {RegistrationFormComponent} from './modules/form/pages/registration-form/registration-form.component';
+import {ContactViewComponent} from './modules/contact/pages/contact-view/contact-view.component';
 
 const parentModuleRoutes: Routes = [
   {
@@ -42,6 +43,10 @@ const parentModuleRoutes: Routes = [
       {
         path: 'registration',
         component: RegistrationFormComponent
+      },
+      {
+        path: 'contact',
+        component: ContactViewComponent
       },
       {
         path: 'successful-login',

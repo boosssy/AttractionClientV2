@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, FacebookLoginProvider } from 'angularx-social-login';
 import {NgForm} from '@angular/forms';
 import {AuthorizationsService} from '../../../../core/sevice/authorizations.service';
+import {User} from '../../../../core/model/User';
+import {MainSevice} from '../../../../core/sevice/MainSevice';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +14,19 @@ import {AuthorizationsService} from '../../../../core/sevice/authorizations.serv
 export class LoginComponent implements OnInit {
 
   title = 'Angular Socio login via Facebook!';
+  users: User[];
+  tmpUser: User;
   user: any;
   showButtonLoginFb = false;
   showButtonLogoutFb = true;
   hiddenButtonLoginFb = true;
   hiddenButtonLogoutFb = false;
 
-  constructor(private socioAuthServ: AuthService, private authoService: AuthorizationsService) { }
+  constructor(private socioAuthServ: AuthService,
+              private authoService: AuthorizationsService,
+              private mainService: MainSevice) {
+    this.tmpUser = new User();
+  }
 
   signIn(platform: string): void {
     this.showButtonLoginFb = true;
@@ -45,17 +54,32 @@ export class LoginComponent implements OnInit {
     console.log('User signed out.');
   }
 
+  login() {
+      // this.authoService.login(formData.value.email, formData.value.password);
+    let status = false;
+    let i: number;
+    for (i = 0; i < this.users.length; i++)  {
+      if (this.tmpUser.userName === this.users[i].userName) {
+        if (this.tmpUser.password === this.users[i].password) {
+          status = true;
+        }
+      }
+    }
+    if (status) {
+      location.assign('/successful-login');
+    } else {
+      location.assign('/failed');
+    }
+  }
+
+  signup() {
+    location.assign('/registration');
+  }
+
   ngOnInit() {
+    this.mainService.findAllUsers().subscribe( data => {
+      this.users = data;
+    });
   }
-
-  login(formData: NgForm) {
-      this.authoService.login(formData.value.email, formData.value.password);
-  }
-
-  signup(formData: NgForm) {
-    this.authoService.signup(formData.value.email, formData.value.password);
-
-  }
-
 
 }

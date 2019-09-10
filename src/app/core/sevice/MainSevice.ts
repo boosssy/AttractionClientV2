@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Attraction} from '../model/Attraction';
 import {Place} from '../model/Place';
+import {User} from '../model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,13 @@ export class MainSevice {
   private attractionsUrl: string;
   private placesUrl: string;
   private transactionsUrl: string;
+  private usersUrl: string;
 
   constructor(private http: HttpClient) {
     this.attractionsUrl = 'http://localhost:8080/attractions';
     this.placesUrl = 'http://localhost:8080/places';
     this.transactionsUrl = 'http://localhost:8080/transactions';
+    this.usersUrl = 'http://localhost:8080/users';
   }
 
   public findAllAttractions(): Observable<Attraction[]> {
@@ -37,5 +40,13 @@ export class MainSevice {
 
   public deleteAttraction(id: number) {
     return this.http.delete(this.attractionsUrl + '/del/' + id);
+  }
+
+  public findAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl);
+  }
+
+  public saveUser(user: User) {
+    return this.http.post<User>(this.usersUrl, user);
   }
 }
