@@ -1,6 +1,7 @@
-<app-menu  *ngIf="!status"></app-menu>
+<app-login *ngIf="0" (eventStat)="dawaj($event)"></app-login>
 
-<app-menu-account *ngIf=status></app-menu-account>
+<app-menu  *ngIf="status" ></app-menu>
+<app-menu-account *ngIf="!status"></app-menu-account>
 
 <section>
   <router-outlet></router-outlet>

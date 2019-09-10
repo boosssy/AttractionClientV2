@@ -21,12 +21,15 @@ export class LoginComponent implements OnInit {
   hiddenButtonLogoutFb = false;
   status = false;
 
+  @Output()
+  eventStat = new EventEmitter<boolean>();
 
   constructor(private socioAuthServ: AuthService,
               private authoService: AuthorizationsService,
               private mainService: MainSevice) {
     this.tmpUser = new User();
   }
+
 
   signIn(platform: string): void {
     this.showButtonLoginFb = true;
@@ -78,6 +81,9 @@ export class LoginComponent implements OnInit {
     location.assign('/registration');
   }
 
+  send(stat) {
+    this.eventStat.emit(this.status);
+  }
   ngOnInit() {
     this.mainService.findAllUsers().subscribe( data => {
       this.users = data;

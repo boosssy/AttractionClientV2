@@ -17,7 +17,6 @@ import {OverviewAttractionsModule} from './modules/overview-attractions/overview
 import {ContactModule} from './modules/contact/contact.module';
 import {StartModule} from "./modules/start/start.module";
 import {AboutUsModule} from "./modules/about-us/about-us.module";
-import {AccountViewComponent} from "./modules/account/pages/account-view/account-view.component";
 import {AccountModule} from "./modules/account/account.module";
 import { MenuAccountComponent } from './layouts/menu-account/menu-account.component';
 
@@ -30,13 +29,6 @@ const config = new AuthServiceConfig([
 ]);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    MenuComponent,
-    ContentComponent,
-    MenuAccountComponent
-  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -50,6 +42,13 @@ const config = new AuthServiceConfig([
     AboutUsModule,
     AccountModule,
     SocialLoginModule.initialize(config)
+  ],
+  declarations: [
+    AppComponent,
+    FooterComponent,
+    MenuComponent,
+    ContentComponent,
+    MenuAccountComponent
   ],
   providers: [
     AuthorizationsService

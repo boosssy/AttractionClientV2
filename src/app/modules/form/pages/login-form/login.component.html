@@ -6,7 +6,7 @@
   <input [(ngModel)]="tmpUser.userName" type="email" placeholder="e-mail" name="email" required/>
   <input [(ngModel)]="tmpUser.password" type="password" placeholder="hasło" name ="password" required/>
 
-  <button class="btn" type="submit" [disabled]="formData.invalid">Log in</button>
+  <button class="btn" type="submit" [disabled]="formData.invalid" (click)="send(status)">Log in</button>
   <button class="btn" type="submit" (click)="signup()">Registration</button>
 
 

@@ -14,6 +14,7 @@ import {StartViewComponent} from "./modules/start/pages/start-view/start-view.co
 import {AboutUsViewComponent} from "./modules/about-us/pages/about-us-view/about-us-view.component";
 import {LogoutComponent} from "./modules/form/pages/logout-form/logout.component";
 import {AccountViewComponent} from "./modules/account/pages/account-view/account-view.component";
+import {AttractionsInfoComponent} from "./modules/account/pages/account-view/attractions-info/attractions-info.component";
 
 const parentModuleRoutes: Routes = [
   {
@@ -67,6 +68,10 @@ const parentModuleRoutes: Routes = [
       {
         path: 'pageNotFound',
         component: PageNotFoundComponent
+      },
+      {
+        path: 'information',
+        component: AttractionsInfoComponent
       },
       {
         path: '',

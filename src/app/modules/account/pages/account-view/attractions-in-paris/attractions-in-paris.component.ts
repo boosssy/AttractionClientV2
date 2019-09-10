@@ -9,6 +9,10 @@ export class AttractionsInParisComponent implements OnInit {
 
   constructor() { }
 
+  information() {
+    location.assign('/information');
+  }
+
   ngOnInit() {
   }
 

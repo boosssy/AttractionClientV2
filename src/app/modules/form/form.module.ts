@@ -7,6 +7,9 @@ import { LogoutComponent } from './pages/logout-form/logout.component';
 
 @NgModule({
   declarations: [LoginComponent, RegistrationFormComponent, LogoutComponent],
+  exports: [
+    LoginComponent
+  ],
   imports: [
     CommonModule,
     FormsModule
