@@ -1,0 +1,54 @@
+<ng-container >
+  <div class="container">
+    <h1>Choose a city</h1>
+
+    <form>
+      <div class="form-group">
+
+        <select name="citiesName" required>
+          <option value="" disabled selected>Choose a city</option>
+          <option *ngFor="let place of places" value="{{place.city}}" (click)="setPlaceParameters(place)">
+            {{place.city}}
+          </option>
+        </select>
+        <br/>
+        <button type="button" (click)="confirmCity()" class="buttonConfirm" >Confirm</button>
+      </div>
+    </form>
+
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isVisibleAttraction" >
+  <div class="container">
+  <h1>Choose a attractions</h1>
+  <form >
+    <div class="form-group">
+      <div *ngIf="tmpPlaceName === 'Paris'">
+        <app-attractions-in-paris></app-attractions-in-paris>
+      </div>
+
+      <div *ngIf="tmpPlaceName === 'Marseille'">
+        <app-attractions-in-marseille></app-attractions-in-marseille>
+      </div>
+
+      <div *ngIf="tmpPlaceName === 'Ankara'">
+        <app-attractions-in-ankara></app-attractions-in-ankara>
+      </div>
+
+      <div *ngIf="tmpPlaceName === 'Konya'">
+        <app-attractions-in-konya></app-attractions-in-konya>
+      </div>
+
+      <div *ngIf="tmpPlaceName === 'Barcelona'">
+        <app-attractions-in-barcelona></app-attractions-in-barcelona>
+      </div>
+
+      <div *ngIf="tmpPlaceName === 'Warsaw'">
+        <app-attractions-in-warsaw></app-attractions-in-warsaw>
+      </div>
+    </div>
+  </form>
+  </div>
+</ng-container>
+
