@@ -15,12 +15,11 @@ import { FacebookLoginProvider } from 'angularx-social-login';
 import {AuthorizationsService} from './core/sevice/authorizations.service';
 import {OverviewAttractionsModule} from './modules/overview-attractions/overview-attractions.module';
 import {ContactModule} from './modules/contact/contact.module';
-import {StartModule} from "./modules/start/start.module";
-import {AboutUsModule} from "./modules/about-us/about-us.module";
-import {AccountModule} from "./modules/account/account.module";
 import { MenuAccountComponent } from './layouts/menu-account/menu-account.component';
-import { TransactionComponent } from './modules/transaction/transaction.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {StartModule} from './modules/start/start.module';
+import {AboutUsModule} from './modules/about-us/about-us.module';
+import {AccountModule} from './modules/account/account.module';
+
 
 const facebookoauthclientid = '797209834027503';
 const config = new AuthServiceConfig([
@@ -43,7 +42,6 @@ const config = new AuthServiceConfig([
     StartModule,
     AboutUsModule,
     AccountModule,
-    BrowserAnimationsModule,
     SocialLoginModule.initialize(config)
   ],
   declarations: [
@@ -51,8 +49,7 @@ const config = new AuthServiceConfig([
     FooterComponent,
     MenuComponent,
     ContentComponent,
-    MenuAccountComponent,
-    TransactionComponent
+    MenuAccountComponent
   ],
   providers: [
     AuthorizationsService

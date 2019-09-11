@@ -1,5 +1,5 @@
 export class Place {
-  id: string;
+  id: number;
   city: string;
   country: string;
 }

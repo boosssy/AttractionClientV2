@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {Attraction} from '../model/Attraction';
 import {Place} from '../model/Place';
 import {User} from '../model/User';
-import {Transaction} from "../model/Transaction";
+import {Transaction} from '../model/Transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,10 @@ export class MainSevice {
     return this.http.get<Attraction[]>(this.attractionsUrl);
   }
 
+  public findAllAttractionsWithKnapsackAlgorithm(city: string, capacity: string): Observable<Attraction[]> {
+    return this.http.get<Attraction[]>(this.attractionsUrl + '/knapsack' + '?city=' + city + '&capacity=' + capacity);
+  }
+
   public findAllAttractionsByPlaceId(placeId: string): Observable<Attraction[]> {
     return this.http.get<Attraction[]>(this.attractionsUrl + '/place/' + placeId);
   }
@@ -35,7 +39,7 @@ export class MainSevice {
     return this.http.get<Place[]>(this.placesUrl);
   }
 
-  public findAttractionByName( attraction: Attraction): Observable<Attraction> {
+  public findAttractionByName(attraction: Attraction): Observable<Attraction> {
     return this.http.get<Attraction>(this.attractionsUrl + '/byName/' + attraction.name);
   }
 

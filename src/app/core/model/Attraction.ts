@@ -1,5 +1,5 @@
 export class Attraction {
-  id: string;
+  id: number;
   name: string;
   shortDescription: string;
   price: string;

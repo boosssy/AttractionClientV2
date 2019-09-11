@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {LoginComponent} from './pages/login-form/login.component';
-import { RegistrationFormComponent } from './pages/registration-form/registration-form.component';
-import { LogoutComponent } from './pages/logout-form/logout.component';
+import {LoginModule} from './sub-modules/login/login.module';
+import {LogoutModule} from './sub-modules/logout/logout.module';
+import {RegistrationModule} from './sub-modules/registration/registration.module';
+import {FormComponent} from './form.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationFormComponent, LogoutComponent],
-  exports: [
-    LoginComponent
-  ],
+  declarations: [FormComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    LoginModule,
+    LogoutModule,
+    RegistrationModule,
+    RouterModule
   ]
 })
 export class FormModule { }

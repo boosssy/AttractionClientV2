@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import { LoginComponent} from "../../modules/form/pages/login-form/login.component";
+import { LoginFormComponent} from "../../modules/form/sub-modules/login/pages/login-form/login-form.component";
 
 @Component({
   selector: 'app-menu',

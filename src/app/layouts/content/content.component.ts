@@ -8,7 +8,7 @@ import titleIs = until.titleIs;
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  // todo pobrac status z login.component.ts
+  // todo pobrac status z login-form.component.ts
   status:boolean;
 
   constructor() { }

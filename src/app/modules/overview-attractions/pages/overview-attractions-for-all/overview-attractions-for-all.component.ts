@@ -22,7 +22,7 @@ export class OverviewAttractionsForAllComponent implements OnInit {
   constructor(private mainService: MainSevice) { }
 
   setPlaceParameters(place: Place) {
-    this.tmpPlaceId = place.id;
+    this.tmpPlaceId = place.id.toString();
     this.tmpPlaceName = place.city;
   }
 
