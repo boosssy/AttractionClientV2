@@ -5,4 +5,5 @@ export class Transaction {
   price: string;
   numberOfPeople: number;
   finalPrice: string;
+  date: string;
 }

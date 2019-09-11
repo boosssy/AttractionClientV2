@@ -19,6 +19,7 @@ import {StartModule} from "./modules/start/start.module";
 import {AboutUsModule} from "./modules/about-us/about-us.module";
 import {AccountModule} from "./modules/account/account.module";
 import { MenuAccountComponent } from './layouts/menu-account/menu-account.component';
+import { TransactionComponent } from './modules/transaction/transaction.component';
 
 const facebookoauthclientid = '797209834027503';
 const config = new AuthServiceConfig([
@@ -48,7 +49,8 @@ const config = new AuthServiceConfig([
     FooterComponent,
     MenuComponent,
     ContentComponent,
-    MenuAccountComponent
+    MenuAccountComponent,
+    TransactionComponent
   ],
   providers: [
     AuthorizationsService

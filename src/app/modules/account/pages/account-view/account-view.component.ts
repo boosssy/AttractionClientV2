@@ -14,6 +14,7 @@ export class AccountViewComponent implements OnInit {
   places: Place[];
   attraction: Attraction;
 
+
   tmpPlaceId: string;
   tmpPlaceName: string;
   // isVisibleCity = true;

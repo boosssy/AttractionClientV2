@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Attraction} from '../model/Attraction';
 import {Place} from '../model/Place';
 import {User} from '../model/User';
+import {Transaction} from "../model/Transaction";
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,9 @@ export class MainSevice {
     return this.http.get<Attraction>(this.attractionsUrl + '/byName/' + attraction.name);
   }
 
-
+  public findAllTransaction(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(this.transactionsUrl);
+  }
 
   public saveAttraction(attraction: Attraction) {
     return this.http.post<Attraction>(this.attractionsUrl, attraction);

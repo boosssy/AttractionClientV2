@@ -15,6 +15,7 @@ import {AboutUsViewComponent} from "./modules/about-us/pages/about-us-view/about
 import {LogoutComponent} from "./modules/form/pages/logout-form/logout.component";
 import {AccountViewComponent} from "./modules/account/pages/account-view/account-view.component";
 import {AttractionsInfoComponent} from "./modules/account/pages/account-view/attractions-info/attractions-info.component";
+import {TransactionComponent} from "./modules/transaction/transaction.component";
 
 const parentModuleRoutes: Routes = [
   {
@@ -70,12 +71,12 @@ const parentModuleRoutes: Routes = [
         component: PageNotFoundComponent
       },
       {
-        path: 'information/barcelona',
+        path: 'information',
         component: AttractionsInfoComponent
       },
       {
-        path: 'information/warsaw',
-        component: AttractionsInfoComponent
+        path: 'transaction',
+        component: TransactionComponent
       },
       {
         path: '',
