@@ -12,6 +12,7 @@ export class AccountViewComponent implements OnInit {
 
   attractions: Attraction[];
   places: Place[];
+  attraction: Attraction;
 
   tmpPlaceId: string;
   tmpPlaceName: string;
@@ -44,4 +45,15 @@ export class AccountViewComponent implements OnInit {
     });
   }
 
+  //---------------------------- BARCELONA -------------------------------
+  //todo przechodzi do komponentu
+  showInfomationBarcelona() {
+    location.assign('/information/barcelona');
+  }
+
+  //---------------------------- Warsaw -------------------------------
+  //todo przechodzi do komponentu
+  showInfomationWarsaw() {
+    location.assign('/information/warsaw');
+  }
 }

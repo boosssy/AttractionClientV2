@@ -70,7 +70,11 @@ const parentModuleRoutes: Routes = [
         component: PageNotFoundComponent
       },
       {
-        path: 'information',
+        path: 'information/barcelona',
+        component: AttractionsInfoComponent
+      },
+      {
+        path: 'information/warsaw',
         component: AttractionsInfoComponent
       },
       {

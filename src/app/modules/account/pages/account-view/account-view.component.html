@@ -8,7 +8,7 @@
         <select name="citiesName" required>
           <option value="" disabled selected>Choose a city</option>
           <option *ngFor="let place of places" value="{{place.city}}" (click)="setPlaceParameters(place)">
-            {{place.city}}
+          {{place.city}}
           </option>
         </select>
         <br/>
@@ -24,28 +24,88 @@
   <h1>Choose a attractions</h1>
   <form >
     <div class="form-group">
-      <div *ngIf="tmpPlaceName === 'Paris'">
+      <div *ngIf="tmpPlaceName === attraction.name">
         <app-attractions-in-paris></app-attractions-in-paris>
       </div>
 
       <div *ngIf="tmpPlaceName === 'Marseille'">
-        <app-attractions-in-marseille></app-attractions-in-marseille>
+        <app-attractions-in-marseille>
+          <div class="offer-bg"></div>
+
+          <div class="cards">
+            <div class="card">
+              <img src="../../../../../../assets/img/museum-marseille.jpg" alt="">
+              <h3>Museum of European and Mediterranean Civilisations</h3>
+              <button class="btnselect" >More...</button>
+              <button class="btnselect">Add to buy</button>
+            </div>
+          </div>
+
+        </app-attractions-in-marseille>
       </div>
 
       <div *ngIf="tmpPlaceName === 'Ankara'">
-        <app-attractions-in-ankara></app-attractions-in-ankara>
+        <app-attractions-in-ankara>
+          <div class="offer-bg"></div>
+
+          <div class="cards">
+            <div class="card">
+              <img src="../../../../../../assets/img/baloonFlight.jpg" alt="">
+              <h3>Balloon flight </h3>
+              <button class="btnselect" >More...</button>
+              <button class="btnselect">Add to buy</button>
+            </div>
+          </div>
+        </app-attractions-in-ankara>
       </div>
 
       <div *ngIf="tmpPlaceName === 'Konya'">
-        <app-attractions-in-konya></app-attractions-in-konya>
+        <app-attractions-in-konya>
+
+          <div class="offer-bg"></div>
+
+          <div class="cards">
+            <div class="card">
+              <img src="../../../../../../assets/img/baloonFlight.jpg" alt="">
+              <h3>Balloon flight </h3>
+              <button class="btnselect" >More...</button>
+              <button class="btnselect">Add to buy</button>
+            </div>
+          </div>
+
+        </app-attractions-in-konya>
       </div>
 
       <div *ngIf="tmpPlaceName === 'Barcelona'">
-        <app-attractions-in-barcelona></app-attractions-in-barcelona>
+        <app-attractions-in-barcelona>
+          <div class="offer-bg"></div>
+
+          <div class="cards">
+            <div class="card">
+              <img src="../../../../../../assets/img/park-guell.jpg" alt="">
+              <h3>Parc Guell</h3>
+              <button (click)="showInfomationBarcelona()" class="btnselect" >More...</button>
+              <button class="btnselect">Add to buy</button>
+            </div>
+          </div>
+        </app-attractions-in-barcelona>
       </div>
 
       <div *ngIf="tmpPlaceName === 'Warsaw'">
-        <app-attractions-in-warsaw></app-attractions-in-warsaw>
+        <app-attractions-in-warsaw>
+
+          <div class="offer-bg"></div>
+
+          <div id="cards">
+            <div class="card">
+              <img src="../../../../../../assets/img/palace-culture.jpg" alt="">
+              <h3>Culture Palace</h3>
+              <button class="btnselect" (click)="showInfomationWarsaw()">More...</button>
+              <button class="btnselect">Add to buy</button>
+            </div>
+          </div>
+
+        </app-attractions-in-warsaw>
       </div>
     </div>
   </form>

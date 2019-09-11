@@ -34,6 +34,12 @@ export class MainSevice {
     return this.http.get<Place[]>(this.placesUrl);
   }
 
+  public findAttractionByName( attraction: Attraction): Observable<Attraction> {
+    return this.http.get<Attraction>(this.attractionsUrl + '/byName/' + attraction.name);
+  }
+
+
+
   public saveAttraction(attraction: Attraction) {
     return this.http.post<Attraction>(this.attractionsUrl, attraction);
   }

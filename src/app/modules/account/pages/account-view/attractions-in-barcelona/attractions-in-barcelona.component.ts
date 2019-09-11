@@ -8,10 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AttractionsInBarcelonaComponent implements OnInit {
 
   constructor() { }
-  //todo przechodzi do komponentu
-  showInfo() {
-    location.assign('/information');
-  }
+
 
   ngOnInit() {
   }
